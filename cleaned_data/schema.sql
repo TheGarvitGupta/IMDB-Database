@@ -17,15 +17,15 @@
 -- 	movie_keyword.sql
 -- 
 
--- sed "s/\"/'/g" cast_in.sql > cast_in.sql
--- sed "s/\"/'/g" cast.sql > cast.sql
--- sed "s/\"/'/g" cleaned_keyword.sql > cleaned_keyword.sql
--- sed "s/\"/'/g" crew_in.sql > crew_in.sql
--- sed "s/\"/'/g" crew.sql > crew.sql
--- sed "s/\"/'/g" finalized_genre_movie.sql > finalized_genre_movie.sql
--- sed "s/\"/'/g" finalized_movie.sql > finalized_movie.sql
--- sed "s/\"/'/g" genres.sql > genres.sql
--- sed "s/\"/'/g" movie_keyword.sql > movie_keyword.sql
+-- sed "s/\"/'/g" cast_in.sql > CLEANED_cast_in.sql
+-- sed "s/\"/'/g" cast.sql > CLEANED_cast.sql
+-- sed "s/\"/'/g" cleaned_keyword.sql > CLEANED_cleaned_keyword.sql
+-- sed "s/\"/'/g" crew_in.sql > CLEANED_crew_in.sql
+-- sed "s/\"/'/g" crew.sql > CLEANED_crew.sql
+-- sed "s/\"/'/g" finalized_genre_movie.sql > CLEANED_finalized_genre_movie.sql
+-- sed "s/\"/'/g" finalized_movie.sql > CLEANED_finalized_movie.sql
+-- sed "s/\"/'/g" genres.sql > CLEANED_genres.sql
+-- sed "s/\"/'/g" movie_keyword.sql > CLEANED_movie_keyword.sql
 
 
 --	Drop all tables
