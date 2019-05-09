@@ -17,7 +17,7 @@
 -- 	movie_keyword.sql
 
 -- INSERT INTO Movie(movie_id, title,runtime,release_year,rating,num_ratings) VALUES("16612","Carmencita","1","1894","5.8","1436");
-CREATE TABLE finalized_movie_imdb (
+CREATE TABLE MOVIES (
 	movie_id number(7) PRIMARY KEY,
 	title VARCHAR(255),
 	runtime number(7),
@@ -27,51 +27,51 @@ CREATE TABLE finalized_movie_imdb (
 );
 
 -- INSERT INTO Genre (name) VALUES ("Action")
-CREATE TABLE genres_imdb (
+CREATE TABLE GENRES (
 	name VARCHAR(255) PRIMARY KEY
 );
 
 -- INSERT INTO Crew(id, gender, name) VALUES ("7879", "2", "John Lasseter");
-CREATE TABLE crew_imdb (
+CREATE TABLE CREW (
 	id number(7) PRIMARY KEY,
 	gender number(7),
 	name VARCHAR(255)
 );
 
 -- INSERT INTO Movie_Cast(id, gender, name) VALUES ("31", "2", "Tom Hanks");
-CREATE TABLE cast_imdb (
+CREATE TABLE CAST (
 	id number(7) PRIMARY KEY,
 	gender number(7) NOT NULL,
 	name VARCHAR(255) NOT NULL
 );
 
 -- INSERT INTO Keyword(name) VALUES ("superhuman");
-CREATE TABLE cleaned_keyword_imdb (
+CREATE TABLE KEYWORDS (
 	name VARCHAR(255) PRIMARY KEY
 );
 
 -- INSERT INTO Cast_In(movie_id, cast_id, charac) VALUES ("862", "31", "Woody (voice)");
-CREATE TABLE cast_in_imdb (
-	movie_id number(7) NOT NULL CONSTRAINT movie_fk_1 REFERENCES finalized_movie_imdb(movie_id),
-	cast_id number(7) NOT NULL CONSTRAINT cast_fk_1 REFERENCES cast_imdb(id),
+CREATE TABLE CAST_IN (
+	movie_id number(7) NOT NULL CONSTRAINT movie_fk_1 REFERENCES MOVIES(movie_id),
+	cast_id number(7) NOT NULL CONSTRAINT cast_fk_1 REFERENCES CAST(id),
 	charac VARCHAR(255) NOT NULL
 );
 
 -- INSERT INTO Crew_In(movie_id, crew_id, job) VALUES ("862", "7879", "Director");
-CREATE TABLE crew_in_imdb (
-	movie_id number(7) NOT NULL CONSTRAINT movie_fk_2 REFERENCES finalized_movie_imdb(movie_id),
-	crew_id number(7) NOT NULL CONSTRAINT crew_fk_2 REFERENCES crew_imdb(id),
+CREATE TABLE CREW_IN (
+	movie_id number(7) NOT NULL CONSTRAINT movie_fk_2 REFERENCES MOVIES(movie_id),
+	crew_id number(7) NOT NULL CONSTRAINT crew_fk_2 REFERENCES CREW(id),
 	job VARCHAR(255)
 );
 
 -- INSERT INTO Movie_Genre(movie_id, genre_name) VALUES("16612","Documentary");
-CREATE TABLE finalized_genre_movie_imdb (
-	movie_id number(7) NOT NULL CONSTRAINT movie_fk_3 REFERENCES finalized_movie_imdb(movie_id),
-	genre_name VARCHAR(255) NOT NULL CONSTRAINT genre_fk_3 REFERENCES genres_imdb(name)
+CREATE TABLE MOVIE_GENRE (
+	movie_id number(7) NOT NULL CONSTRAINT movie_fk_3 REFERENCES MOVIES(movie_id),
+	genre_name VARCHAR(255) NOT NULL CONSTRAINT genre_fk_3 REFERENCES GENRES(name)
 );
 
 -- INSERT INTO Movie_Keyword(kwd_name, movie_id) VALUES ("jealousy", "862");
-CREATE TABLE movie_keyword_imdb (
+CREATE TABLE MOVIE_KEYWORD (
 	kwd_name VARCHAR(255),
-	movie_id number(7) NOT NULL CONSTRAINT movie_fk_4 REFERENCES finalized_movie_imdb(movie_id)
+	movie_id number(7) NOT NULL CONSTRAINT movie_fk_4 REFERENCES MOVIES(movie_id)
 );
